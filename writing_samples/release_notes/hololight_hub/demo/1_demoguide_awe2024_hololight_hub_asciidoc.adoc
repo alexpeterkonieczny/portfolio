@@ -1,0 +1,959 @@
+= Hololight Hub On-Premises AWE 2024 Demonstration User Guide
+Konieczny, Alexander <a.konieczny@holo-light.com> 
+:doctype: book
+:toc:
+:toclevels: 3
+:description: This user guide walks demonstrators through the process of preparing for, setting up, and executing the Hololight Hub AWE 2024 Demonstration.
+:imagesdir: images
+
+<<<
+
+== Introduction
+First of all, thank you so much for demonstrating Hololight Hub at the Augemnted World Expo 2024. This demo represents months of work and years of planning on the part of many of your coworkers at Hololight. Hololight Hub is a major step for Hololight, making the process of remote rendering of mixed-reality content easier, more intuitive, and deployable to any of a vast array of devices that support the Hololight Hub client. It represents the opportunity for a company's IT department to host a library of ultra-powerful applications and make them instantly available to any number devices with ease. This user guide will help you prepare and lead a demonstration designed to communicate this vision to every visitor that comes to Hololight's booth at AWE.
+
+This demo is designed to highlight specific features of Hololight Hub running on an on-premises server. However, this demo is not a complete implementation. Becasue of this, it is important to read this guide before showing the demo and understand what you are able to showcase. Only the features in the walkthrough below are available. Trying to push past what's in the walkthrough could either lessen the impact of the demo on the visitor or potentially cause the demo to not work and require maintenance. Of course, feel free to highlight Hub features you feel are relevant to the visitor as well as not focus on the parts of the demonstration as best fits the situation or audience. 
+
+<<<
+
+== Important Notes
+- Do not try to change the applications running on the server.
+- Do not try to change the metadata on the web server database.
+- Do not try to change the structure, content, or appearance of the web browser application.
+
+<<<
+
+== Equipment
+Included in the appendix is an xref:appendixEquipment[equipment list]. Use this list to make sure you are ready to go with all the necessary equipment before you head out to AWE. You should also use this list when prepping the demo, cleaning up afterwards, accounting for all the equipment before coming back home, and then again when you are back to ensure all of our equipment can be used effectively at AWE and into the future.
+
+Since there are two setups of the demo, there are two sets of equipment. "Setup count" shows you how many of a given piece of equipment is needed for one setup. "Total count" shows you how many of that piece of equipment you have in total. 
+
+An entry for a hotspot is included in the equipment list, but you will not bring it with you from Ismaning since we don't have one. You will need to find ane purchase one in the United States.
+
+=== Labels
+In the "Label" column, some label names will have a "#". On the printed labels a number takes the place of this symbol, either a "1" or a "2", letting you know which demonstration setup the item belongs to. For example, in the equipment list, the label is listed as "HOLO SWITCH #", meaning that there is a network switch labelled "HOLO SWITCH 1" belonging to Setup 1 and a switch labelled "HOLO SWITCH 2" belonging to Setup 2.
+
+Lastly, equipment may also have a label, either "Private Room 1" for Setup 1 or "Private Room 2" for Setup 2. 
+
+<<<
+== Set up demonstration
+This section gives step-by-step instructions for preparing a demonstration setup. Following this process in this order is the best way to ensure that all the equipment works correctly. Remember that there is enough equipment to put together two independent setups. Each piece of equipment is already labelled.
+
+=== Hardware
+Before you can test any of the software, you will need to first set up the hardware. Take care to follow these instructions to avoid any issues. You can then make sure that all devices are powered on and off safely.  
+
+==== Power strip
+You should first find the perfect place for your power strip. Make sure it is both as hidden as possible while still being accessable. 
+
+*Do not turn it on yet.*
+
+<<<
+
+==== Network (Switch, gateway, access point, hotspot)
+You should then set up the network. The network allows all the devices required for the demonstration to connect and communicate with one another. Use the diagram below for quick reference on how to connect the different parts together.
+
+image:hololighthub_awe2024_demo_networkdiagram_20240524.png[,480]
+
+===== Switch
+Set up the switch. Between the two setups, there are two different models of switch. The equipment list in the appendix clarifies this. Connect the power cord to the switch and plug it into the power strip.
+
+<<<
+
+===== Gateway
+Now set up the gateway. On the back are two ports. Connect an ethernet cable to the port with two arrows and the other end of that cable to port 1 on the switch. Attach the power cord and plug it into the power strip.
+
+image:hub_awe2024_demo_gateway_ports.png[,480]
+
+===== Access Point
+Next, you need to set up the access point. This allows wireless devices to connect to the network. Underneath the device is an ethernet port. Attach an ethernet cable to this port and the other end to port 6 on the switch. 
+
+===== Hotspot
+If you have a hotspot, you need to plug it into the remaining port on the gateway. This will enable internet access.
+
+===== Power on and test
+If everything is properly connected, switch on the power strip to start the network. Wait for the blue light of the access point to glow. From the moment it is powered on, the network could take up to 20 minutes to start. To test if the network is working, see if the setup's assigned iPad can connect to the network. If a hotspot is connected, see if you can browse the internet using the successfully connected iPad. Which iPad should connect to which network is shown below.
+
+[cols="1,1,3"]
+|===
+|*Demo setup*
+|*iPad*
+|*Network name*
+
+|Setup 1
+|"Private Room 1"
+|HUB-AWE-1
+
+|Setup 2
+|"Private Room 2"
+|HUB-AWE-2
+|=== 
+
+<<<
+
+==== Server machine
+The server runs the applications the clients connect to, as well as running the web browser application you view with the iPad.
+
+image:hololighthub_awe2024_demo_serverconnections_20240524.png[,480]
+
+To set up the server machine, first start at the back of the machine, pictured above. Connect your ethernet cable to the port marked with an arrow. Using any other port will not work. Connect the other end of the ethernet cable into port 7 of the network switch.
+
+Continuing on the backside of the server machine, connect both power cables to the top two ports. You must connect both of these. If only one is connected, the machine will beep continuously when you power it on. If this happens, make sure the two power cable connectors are fully inserted. If both power cords are fully-connected the beeping will stop.
+
+Go to the front of the machine. Open the door and you will see a white power button. Press this button and the machine will turn on. Close the door. From here you shouldn't need to do anything else with the server machine itself. All the software installed on the server will start automatically. This can take between 5 and 10 minutes. 
+
+<<<
+
+==== iPad
+The iPad is used to show the web browser application that allows users to manage their applications.
+
+Each iPad is preconfigured to connect to its assigned network, if the network is running. If it doesn't connect xref:troubleshootIPadConnect[see the troubleshooting section].
+
+The demonstration requires the iPad to run in landcape mode. Turn the iPad to make sure the orientation cannot change. If the iPad switches between portrait and landscape orientation xref:troubleshootIPadLock[see the troubleshooting section].
+
+To test the server machine, open Safari. You should see two bookmarks, "Hololight Hub" and "Hololight Hub - RESET". If the bookmarks don't appear, click the address bar at the top of the Safari or open a new tab. If there are still no bookmarks xref:troubleshootIPadBookmark[see the troubleshooting section].
+
+The bookmarks allow easy access to the web browser application. Select the "Hololight Hub" bookmark. If the server is fully initialized and running correctly, you should now see the landing page for the Hololight Hub web browser application.
+
+If when navigating the different pages of the web browser application the text or sizing of images looks unreadable or incorrect xref:troubleshootIPadSize[see the troubleshooting section].
+
+==== Laptop
+
+// The laptops are preconfigured to connect to the network if the network is running. If it doesn't connect see the troubleshooting section.
+A laptop is needed at each setup for three reasons:
+
+. Providing a server for the Taqtile Manifest application.
+. Allowing mixed-reality capture for the HoloLens 2 and Magic Leap 2.
+. Accessing and troubleshooting issues with the server. 
+
+Alex and Philipp are responsible for providing and setting up these laptops.
+
+==== Monitor
+
+Use the monitor to show visitors not wearing a mixed-reality headset what the device is displaying.
+
+. Set up the monitor by plugging it into the power strip.
+. Plug the Chromecast into HDMI input 1.
+
+<<<
+
+==== Chromecast
+
+image:hub_awe2024_demo_device_chromecast.jpg[,320]
+
+The Chromecast is for displaying a video capture stream of the Meta Quest 3 when running your demonstration. Connect it to one of the monitor's HDMI ports and connect the Chromecast to the setup's network. In addition, the Chromecast needs a connection to a power source using the included power supply.
+
+
+<<<
+
+==== Mixed-reality devices
+
+All mixed-reality devices will arrive at AWE with the Hololight Hub clients preinstalled. You will need to connect them to their respective networks though. Use the table below to connect the correct device to the correct set up.
+
+[cols="1,1,3"]
+|===
+|*Demo setup*
+|*Network name*
+|*Network password*
+
+|Setup 1
+|HUB-AWE-1
+|1HOLODEMO!
+
+|Setup 2
+|HUB-AWE-2
+|1HOLODEMO!
+|=== 
+
+<<<
+
+===== Meta Quest 3
+image:hub_awe2024_demo_device_metaquest3.jpg[,320]
+
+The Meta Quest 3 sHould be the primary device you use when displaying mixed-reality capture on the monitor during the demonstration. It is both the easiest to display and has the best performance. The video feed will only work if the network is connected to the internet with a hotspot and the Meta Quest 3 is connected to the network.
+
+====== Connecting the Meta Quest 3 to demonstration wifi network
+{counter:stepsMetaQuest3ConnectNetwork}. Press the Meta / Oculus button on your right Touch controller to pull up your universal menu.
+
+{counter:stepsMetaQuest3ConnectNetwork}. Hover over the clock on the left side of the universal menu. When Quick Settings appears, select it to open the Quick Settings panel.
+
+{counter:stepsMetaQuest3ConnectNetwork}. Select "Wi-Fi".
+
+{counter:stepsMetaQuest3ConnectNetwork}. Select the toggle to turn Wi-Fi on if it is off, then select the Wi-Fi network you want to connect to and enter the password.
+
+{counter:stepsMetaQuest3ConnectNetwork}. Select "Connect".
+
+====== Displaying the Meta Quest 3 video capture to the monitor with a Chromecast
+
+You must connect the network to the internet with a hotspot and the Meta Quest 3 to the network for the Meta Quest 3 video capture to work.
+
+{counter:stepsMetaQuest3ConnectFeed}. Turn on the monitor with the Google Chromecast connected to an HDMI port.
+
+{counter:stepsMetaQuest3ConnectFeed}. Make sure the Meta Quest 3 and Google Chromecast are connected to the demonstration setup network.
+
+{counter:stepsMetaQuest3ConnectFeed}. On the Meta Quest 3 select "Camera".
+
+image:hub_awe2024_demo_quest3_stream_00.jpg[,480]
+
+<<<
+    
+{counter:stepsMetaQuest3ConnectFeed}. On the window that appears, select "Cast".
+
+image:hub_awe2024_demo_quest3_stream_01.jpg[,480]
+
+<<<
+
+{counter:stepsMetaQuest3ConnectFeed}. Select "Hololight-chromecast-1" and the feed should appear.
+
+image:hub_awe2024_demo_quest3_stream_02.jpg[,480]
+
+<<<
+
+===== Magic Leap 2
+image:hub_awe2024_demo_device_magicleap2.png[,320]
+
+====== Connecting the Magic Leap 2 to the demonstration wifi network
+{counter:stepsMagicLeap2ConnectNetwork}. Open "Settings" in the app launcher. Select "Network & Internet".
+
+image:hub_awe2024_demo_device__magicleap2_wifi_00.jpeg[,320]
+
+<<<
+
+{counter:stepsMagicLeap2ConnectNetwork}. Select the wireless network you're connecting to from the list. If a password is required, a virtual keyboard will pop up to enter your password with.
+
+image:hub_awe2024_demo_device__magicleap2_wifi_01.jpeg[,320]
+
+<<<
+====== Streaming the Magic Leap 2 video capture to laptop
+{counter:stepsMagicLeap2ConnectFeed}. Make sure both the Magic Leap 2 and the laptop are connected to the setup's network. Make sure you have the Magic Leap 2's IP address before starting. You can find it by going into the device's network settings.
+
+{counter:stepsMagicLeap2ConnectFeed}. Run Magic Leap Hub on your computer. This only works on Windows.
+
+{counter:stepsMagicLeap2ConnectFeed}. Select "Device Bridge".
+
+image:hub_awe2024_demo_magicleap2_stream_00.png[,480]
+
+{counter:stepsMagicLeap2ConnectFeed}. Enter the IP address of the Magic Leap 2 and select "Connect". The port will always be "5555".
+
+image:hub_awe2024_demo_magicleap2_stream_01.png[,480]
+
+<<<
+
+image:hub_awe2024_demo_magicleap2_stream_02.png[,480]
+
+{counter:stepsMagicLeap2ConnectFeed}. Select "Device Stream"
+
+image:hub_awe2024_demo_magicleap2_stream_03.png[,480]
+
+<<<
+
+===== HoloLens 2
+image:hub_awe2024_demo_device_hololens2.jpg[,320]
+
+====== Connecting the HoloLens 2 to the demonstration wifi network
+{counter:stepsHololens2ConnectNetwork}. Perform the Start gesture and select "Settings". The Settings app will be auto-placed in front of you.
+
+{counter:stepsHololens2ConnectNetwork}. Select "Network & Internet" > "Wi-Fi". Make sure Wi-Fi is turned on. If you don't see your network, scroll down the list.
+
+{counter:stepsHololens2ConnectNetwork}. Select a the setup's network, then select "Connect".
+
+{counter:stepsHololens2ConnectNetwork}. If you're prompted for a network password, type it and select "Next".
+
+====== Displaying the HoloLens 2 video capture to the laptop
+{counter:stepsHololens2ConnectFeed}. Turn on the HoloLens 2 and type in the PIN, "010415".
+
+{counter:stepsHololens2ConnectFeed}. When the applications appear, select "Settings".
+
+{counter:stepsHololens2ConnectFeed}. Select "Update & Security".
+
+{counter:stepsHololens2ConnectFeed}. From the left menu select "For developers".
+
+{counter:stepsHololens2ConnectFeed}. Scroll down to "Device Portal". Make sure the toggle is in the "On" position. The address under "Wi-Fi" in this part of the panel is what you will need to type in on your laptop browser.
+
+{counter:stepsHololens2ConnectFeed}. Connect a laptop to the monitor that will display the stream.
+
+{counter:stepsHololens2ConnectFeed}. Open Google Chrome on the laptop. In the address bar, type in the IP address you found on the HoloLens 2.
+
+<<<
+
+{counter:stepsHololens2ConnectFeed}. A warning screen will appear. Select "Erweitert".
+
+image:hub_awe2024_demo_hololens2_stream_00.png[,480]
+
+{counter:stepsHololens2ConnectFeed}. Select the link at the bottom that says "Weiter..."
+
+image:hub_awe2024_demo_hololens2_stream_01.png[,480]
+
+<<<
+
+{counter:stepsHololens2ConnectFeed}. Use the following username and password to sign in:
+
+[cols="1,3"]
+|===
+|username
+|Holo-Light
+
+|password
+|Holo-Light
+|=== 
+
+image:hub_awe2024_demo_hololens2_stream_02.png[,480]
+
+{counter:stepsHololens2ConnectFeed}. On the left-side navigation menu, select "Views", then "Mixed Reality Capture".
+
+image:hub_awe2024_demo_hololens2_stream_03.png[,480]
+
+<<<
+
+{counter:stepsHololens2ConnectFeed}. Make sure the dropdown near "Live preview quality" is on "Medium" and then select the "Live preview" button.
+
+image:hub_awe2024_demo_hololens2_stream_04.png[,480]
+
+{counter:stepsHololens2ConnectFeed}. The video feed should appear. Make is full screen.
+
+<<<
+
+===== Lenovo VXR
+image:hub_awe2024_demo_device_lenovovxr.png[,320]
+
+====== Connecting the Meta Quest 3 to demonstration wifi network
+{counter:stepsMetaQuest3ConnectNetwork}. Press Meta / Oculus button on your right Touch controller to pull up your universal menu.
+
+{counter:stepsMetaQuest3ConnectNetwork}. Hover over the clock on the left side of the universal menu. When Quick Settings appears, select it to open the Quick Settings panel.
+
+{counter:stepsMetaQuest3ConnectNetwork}. Select "Wi-Fi".
+
+{counter:stepsMetaQuest3ConnectNetwork}. Select the toggle to turn Wi-Fi on, then select the Wi-Fi network you want to connect to and enter the password.
+
+{counter:stepsMetaQuest3ConnectNetwork}. Select "Connect".
+
+=== Web browser application 
+Open Safari on the iPad. Selec the "Hololight Hub - RESET" bookmark to load the demonstration reset page.
+
+Select "Toggle Delete App" to reset the application. 
+
+Now that you've set up all your equipment, it is time to give it a test drive. Make sure to go through the entire demonstration walkthrough to make sure the demo experience is exactly as you expect it to be. 
+
+<<<
+
+== Demonstration Walkthrough
+
+Use the demonstration walkthrough to both test your demonstration setup once it is running and also run the demonstration itself.
+
+=== Step {counter:stepsWalkthrough}. Open the web browser application on the iPad
+Open Safari on the iPad. Select the bookmark "Hololight Hub" to go to the landing page.
+
+=== Step {counter:stepsWalkthrough}. Landing page
+image:hub_awe2024_demo_browser_landing.png[,480]
+
+The landing page is the first page of the demonstration. The page does scroll up and down. Select the "Login" button when you are ready to continue.
+
+<<<
+
+=== Step {counter:stepsWalkthrough}. iPad - Login page
+image:hub_awe2024_demo_browser_signin.png[,480]
+
+By default "\a.werlberger@holo-light.com" and a password are already in the two text boxes on the Login page. Even if this isn't the case, the text in the boxes doesn't affect the application. select the "Login" button when you are ready to continue.
+
+<<<
+
+=== Step {counter:stepsWalkthrough}. iPad - Applications page
+image:hub_awe2024_demo_browser_apps_00.png[,480]
+
+This page shows the applications that are currently available on Hololight Hub. When you are ready to continue select one of the application tiles to show the details for the application.
+
+<<<
+
+=== Step {counter:stepsWalkthrough}. iPad - Application details page
+image:hub_awe2024_demo_browser_appdetail.png[,480]
+
+This page shows details about a selected application. When you are ready to continue, select "Users" on the left-side navigation bar. 
+
+You do not need to start any applications. All applications are already running, and the "START" button does nothing.
+
+<<<
+
+=== Step {counter:stepsWalkthrough}. iPad - User list page
+image:hub_awe2024_demo_browser_users.png[,480]
+
+This page shows the list of users in user Alex's tennancy. Select the "Add New User" button to continue
+
+=== Step {counter:stepsWalkthrough}. iPad - Add user page
+
+This page shows a form the user would fill out to add a user. Attempting to add a user will do nothing. When you are ready to continue, click "Applications" on the left-side navigation bar to return to the "Applications" page. 
+
+<<<
+
+=== Step {counter:stepsWalkthrough}. Mixed-reality headset - Hololight Hub client application
+All the client-related images in this guide show the HoloLens 2 version of the Hololight Hub client.
+
+When using the a mixed-reality headset to demonstrate the Hololight Hub client, you can stream video capture of the experience from the device to a display. See the mixed-reality device you need in the "Set up demonstration" section.
+
+To start, open the Hololight Hub Client application on the mixed-reality device of your choice.
+
+=== Step {counter:stepsWalkthrough}. Mixed-reality headset - Sign in screen
+image:hub_awe2024_demo_xr_signin.jpg[,480]
+
+When you are ready to continue, select either the "Alex Werlberger" or "Philipp Landgraf" profile picture.
+
+<<<
+
+=== Step {counter:stepsWalkthrough}. Mixed-reality headset - Applications screen
+image:hub_awe2024_demo_xr_apps_00.jpg[,480]
+
+When you are ready to continue, select an application to open its details page.
+
+=== Step {counter:stepsWalkthrough}. Mixed-reality headset - Application details panel
+image:hub_awe2024_demo_xr_details.jpg[,480]
+
+When you are ready to continue, select "Connect" to connect the application or select the "X" symbol to close the panel and choose another application.
+
+<<<
+
+=== Step {counter:stepsWalkthrough}. Mixed-reality headset - Connect to an application
+After selecting "Connect", you will connect to the selected application just as you would normally with Hololight Stream.
+
+=== Step {counter:stepsWalkthrough}. Mixed-reality headset - Disconnect from an application
+Close the application by closing the client as you would any other application on the given device. There isn't a disconnect feature, except for in the case of Frontline. Do not use this feature in Frontline or you will need to go through the application restart steps in the troubleshooting section.
+
+<<<
+
+=== Step {counter:stepsWalkthrough}. iPad - Add an application using the browser application
+image:hub_awe2024_demo_browser_appadd_00.png[,480]
+
+The "Add new app" page has a form you need to fill out to add an app to the app list. Please follow the instructions. The upload isn't real, but by making the correct choices the user will only see a successful application.
+
+Use the table below to correctly fill out the fields.
+
+[cols="1,3"]
+|===
+|*Application name*
+|Label
+
+|*Thumbnail*
+|"Manifest"
+
+|*Banner*
+|"Thumbnail.png"
+
+|*App Package*
+|"application_taqtile_manifest.zip"
+
+|*Publisher*
+|"Taqtile"
+
+|*Version*
+|_DOES THIS MATTER?_
+
+|*Description*
+|Feel free to write what is convenient in here.
+
+|*Supported Devices*
+|"HoloLens 2"
+|===
+
+<<<
+image:hub_awe2024_demo_browser_appadd_01.png[,480]
+
+When you select any of the "Select" buttons, a dropdown menu will appear. Select "Choose File" to open a window where you can select the correct file. Use the table above to know which file is correct.
+
+image:hub_awe2024_demo_browser_appadd_02.png[,480]
+
+When you are finished filling out the fields, select "Upload". A progress bar animation will start. When it finishes, a notification will appear telling you that you were successful. When you are ready to continue, click "Applications" on the left-side navigation bar to return to the "Applications" page. 
+
+=== Step {counter:stepsWalkthrough}. iPad - Show updated application list
+A new application is now visable.
+
+=== Step {counter:stepsWalkthrough}. Mixed-reality headset - Refresh application list on client application
+image:hub_awe2024_demo_xr_apps_01.jpg[,480]
+
+Select the profile icon in the upper right-hand part of the application panel. Select "Refresh Apps" from the dropdown selection menu that appears. A new application tile will appear matching the one that appeared on the web browser application, the one you uploaded. 
+
+Explain to the visitor that since the app was uploaded, you can use the device with the Hololight Hub client to connect to and use the uploaded application.
+
+<<<
+=== Step {counter:stepsWalkthrough}. Mixed-reality headset - Show updated application list
+image:hub_awe2024_demo_xr_apps_02.jpg[,480]
+
+The list of application now includes the Manifest application. Select an appication tile to show the details page for the app. Then select "Connect" to use the application.
+
+=== Step {counter:stepsWalkthrough}. Mixed-reality headset - Connect to the uploaded application
+Show the visitor you using the uploaded application.
+
+<<<
+=== Step {counter:stepsWalkthrough}. iPad - Reset Hololight Hub demonstration
+image:hub_awe2024_demo_browser_reset.png[,480]
+
+When the demo is finished, you need to reset application library back to three applications. Select the address bar to see your bookmarks, then select "Toggle Application" to remove the application you uploaded. You are now ready for the next demo.
+
+<<<
+
+== Troubleshooting
+
+Below, you can find solutions to any number of problems that may occur when running the demo.
+
+[reftext="troubleshootIPadConnect"]
+=== iPad won't connect to the network
+If an iPad is not automatically connecting to the server try the following:
+
+==== Check that you have the correct iPad
+Each iPad works with a specific demo setup. For example, if the iPad has the label "Private Room 1" it is meant to connect to setup 1's network. Check that you are using the correct iPad, and if you aren't, get the correct one.
+
+==== Reconnect to the network
+It is possible that something happens and the iPad loses its ability to automatically connect to the correct network. 
+
+{counter:stepsReconnectiPad}. Make sure you have the correct iPad for the network you want to connect to.
+
+{counter:stepsReconnectiPad}. Unlock the iPad using the code "010415".
+
+{counter:stepsReconnectiPad}. Go to "Settings" > "Wifi".
+
+{counter:stepsReconnectiPad}. Connect to the appropriate network using the credentials below.
+
+
+[cols="1,1,1,3"]
+|===
+|*Demo setup*
+|*iPad*
+|*Network name*
+|*Network password*
+
+|Setup 1
+|"Private Room 1"
+|HUB-AWE-1
+|1HOLODEMO!
+
+|Setup 2
+|"Private Room 2"
+|HUB-AWE-2
+|1HOLODEMO!
+|=== 
+
+{counter:stepsReconnectiPad}. Once connected, open Safari and open the bookmark "Hololight Hub".
+
+<<<
+
+[reftext="troubleshootIPadLock"]
+=== iPad not locked into landscape orientation
+
+Follow these steps if the iPad is switching its screen orientation to portrait mode. The demonstation will not display properly in portrait mode.
+
+{counter:stepsiPadOrientationIssue}. Put the iPad into landscape orientation.
+
+{counter:stepsiPadOrientationIssue}. Swipe down from the upper right corner of the screen.
+
+{counter:stepsiPadOrientationIssue}. Select the button with the lock icon.
+
+image:hub_awe2024_demo_troubleshooting_orientation_00.jpg[,480]
+
+<<<
+
+[reftext="troubleshootIPadSize"]
+=== Web application does not display correctly on the iPad
+
+{counter:stepsiPadDisplayIssue}. Open Safari.
+
+{counter:stepsiPadDisplayIssue}. Select the "AA" symbol to the left of the address bar. 
+
+{counter:stepsiPadDisplayIssue}. Change the font size to "85%".
+
+[reftext="troubleshootIPadBookmark"]
+=== iPad is missing bookmarks to connect to the web browser application and/or the reset page
+
+If the bookmarks to the web browser application are missing, do the following:
+
+{counter:stepsBookmarkMissing}. Open Safari.
+
+{counter:stepsBookmarkMissing}. When Safari opens, select the address bar at the top of the application and type "192.168.110.133:3000".
+
+{counter:stepsBookmarkMissing}. If the network is running, the landing page of the web browser application will appear. Add tha page as a bookmark titled "Hololight Hub".
+
+{counter:stepsBookmarkMissing}. Select the address bar at the top of the application and type "192.168.110.133:3000/admin".
+
+{counter:stepsBookmarkMissing}. The reset page of the web browser application will appear. Add tha page as a bookmark titled "Hololight Hub - RESET".
+
+<<<
+
+=== Can't connect to one or more applications
+If you can't connect to one of the applications, it could be that the app has locked up or crashed. To fix this, you will need to restart the application on the server. Don't worry, this is super easy.
+
+==== Connect to the application server
+You will need to connect to the server hosting your application. There are two ways to do this.
+
+===== Connect to application server using an .rdp file
+The easiest way to connect to an application's server is with a .rdp file. In your resource package you have an .rdp file for each of the applications. Using this file you can restart each respective app by opening a the corresponding .rdp file. Double-click the .rdp file for the app you want to fix.
+
+<<<
+
+image:hololighthub_awe2024_demo_troubleshooting_appreset_remotedesktop_01_20240524.png[,320]
+
+On the panel that appears, select "Weitere Optionen".
+
+image:hololighthub_awe2024_demo_troubleshooting_appreset_remotedesktop_02_20240524.png[,320]
+
+Select "Anderes Konto verwenden" and enter the following credentials. These credentials will work for any method of remote desktop across any of the applications:
+
+[cols="1,3"]
+|===
+|username
+|HL-DEMO
+
+|password
+|1HOLODEMO!
+|=== 
+
+With the credential fields filled out, click "OK".
+
+image:hololighthub_awe2024_demo_troubleshooting_appreset_remotedesktop_03_20240524.png[,320]
+
+Another window will open asking if you are sure if you want to continure. Click "Yes".
+
+<<<
+
+=====  Connect to application server using the Windows Remote Desktop application
+If the .rdp file you need won't work or isn't available, you can use Windows Remote Desktop Connection to open a remote desktop window and fix the application. To open Remote Desktop Connection, press the Windows key (between left Ctrl and left alt), type "Remote Desktop" or "Remotedesktopverdindung", and open the program that appears.
+
+image:hololighthub_awe2024_demo_troubleshooting_appreset_remotedesktop_00_20240524.png[,320]
+
+Each application has its own corresponding IP address. Use the table below to find the right one.
+
+[cols="1,1,1,1"]
+|===
+|*Applciation*
+|*IP address*
+|*Username*
+|*Password*
+
+|Web server
+|192.168.110.133
+|local\HL-DEMO
+|1HOLODEMO!
+
+|Hololight Space
+|192.168.109.135
+|local\HL-DEMO
+|1HOLODEMO!
+
+|NVIDIA Omniverse
+|192.168.108.195
+|local\HL-DEMO
+|1HOLODEMO!
+
+|Frontline
+|192.168.110.80
+|local\HL-DEMO
+|1HOLODEMO!
+
+|Taqtile
+|192.168.110.83
+|local\HL-DEMO
+|1HOLODEMO!
+|=== 
+
+When you've entered the correct credentials, click "Connect".
+
+From here on out the process is the same as when you connect with an .rdp file.
+
+<<<
+
+==== Restarting the application
+Though largely the same process, there a small differences in how to restart each of the applications. Below are instructions for each of the different situations you might encounter.
+
+===== Restarting Space or Taqtile
+When the remote desktop window appears it will show a familliar Windows desktop. You may or may not see the app running. Either way we either want to restart or start the app in order to see if a restart solves the connection problem.
+
+image:hololighthub_awe2024_demo_troubleshooting_appreset_remotedesktopview_20240524.png[,480]
+
+On the desktop is a file named "AppRestartBatch". Double-click this file and if the app is running it will close, and in either case a new instance of the app will start
+
+image:hololighthub_awe2024_demo_troubleshooting_appreset_remotedesktopview_resetshortcut_20240524.png[,160].
+
+The process won't take long. When the application appears, close the remote desktop window.
+
+<<<
+
+===== Restarting Frontline
+When you remote desktop into the server for Frontline the screen will be completely black. This is because it is in full screen. Press the Windows key (between left Ctrl and left alt) to  Restarting Frontline is almost the same as restarting Space, 
+
+image:hololighthub_awe2024_demo_troubleshooting_appreset_frontline_00_20240524.png[,480]
+
+Press the Windows key to open the Start menu. Then select "File Explorer".
+
+image:hololighthub_awe2024_demo_troubleshooting_appreset_frontline_01_20240524.png[,480]
+
+Select "Desktop".
+
+<<<
+
+image:hololighthub_awe2024_demo_troubleshooting_appreset_frontline_02_20240524.png[,480]
+
+Double click "AppRestartBatch".
+
+<<<
+
+===== Restarting NVIDIA Omniverse
+
+image:hololighthub_awe2024_demo_troubleshooting_appreset_omniverse_00_20240524.png[,480]
+
+NVIDIA Omniverse is only different in that the application runs in Unity, and when you double click "AppRestartBatch" on the desktop, the application will take longer to restart.
+
+<<<
+
+=== Web browser application isn't working correctly
+Use a .rdp file to remote into the web server. Like the other applications it will look just like a normal windows desktop. From here just restart Windows as you notmally would.
+
+=== Restart the machine
+If problems persist despite trying everything described above, you should get in touch with one of the Hololight engineers in the contact section. If none of them are available you can try the following on your own.
+
+==== Remote access restart
+This is the safest way to restart the machine, but should only be done by a Hololight engineer.
+
+{counter:stepsRemoteAccessRestart}. Using a laptop, connect to the network for your demo setup.
+
+<<<
+
+{counter:stepsRemoteAccessRestart}. Open the Google Chrome browser. In the address bar at the top enter the IP address that corresponds to your setup and network.
+
+[cols="1,1,3"]
+|===
+|*Demo setup*
+|*Network name*
+|*Control panel IP Address*
+
+|Setup 1
+|HUB-AWE-1
+|\https://192.168.111.222
+
+|Setup 2
+|HUB-AWE-2
+|\https://192.168.111.211
+|=== 
+
+{counter:stepsRemoteAccessRestart}. A sign in page will appear. Use the following credentials to sign in:
+
+[cols="1,3"]
+|===
+|*username*
+|root
+
+|*password*
+|1HOLODEMO!
+|=== 
+
+image:hololighthub_awe2024_demo_troubleshooting_vmware_00_20240524.png[,480]
+
+<<<
+
+{counter:stepsRemoteAccessRestart}. Select "Herunterladen". The control panel will send you to the sign in page.
+
+image:hololighthub_awe2024_demo_troubleshooting_vmware_01_20240524.png[,480]
+{counter:stepsRemoteAccessRestart}. Wait for the server machine to shut down. The fans will become very quiet, moving only every so often. The blue power light will also be off. A green light will blink every now and then.
+
+{counter:stepsRemoteAccessRestart}. Press the power button on the server machine to power it on the same way you did when setting up the demo.
+
+<<<
+
+==== Power button shut down
+Go to the front of the server machine. Open the door. Press the white switch once and the machine will start to shut down. The fans will make a significant amount of noise, but then become very quiet, only moving very little every so often. The blue light will also be off, and there will only be a green light that blinks every so often. At this point press the power button again to power on the machine in the same way as you did when setting up the demo.
+
+==== Power button hard shut down
+If the machine does not respond to simply pressing the power button once, instead press and hold the power button for 12 seconds. The machine will then instantly power off, the blue light will go out, and only the green light will blink every so often. At this point press the power button again to power on the machine in the same way as you did when setting up the demo.
+
+<<<
+
+== Appendix
+
+[reftext="appendixNetworkSecurity"]
+=== Appendix A - Network Security Keys
+[cols="1,1,1"]
+|===
+|*Setup Name*
+|*Network name*
+|*Network password*
+
+|Setup 1
+|HUB-AWE-1
+|1HOLODEMO!
+
+|Setup 2
+|HUB-AWE-2
+|1HOLODEMO!
+|=== 
+
+<<<
+
+
+[reftext="appendixRemoteDesktopConnection"]
+=== Appendix B - Windows Remote Desktop Connection addresses and credentials
+
+[cols="1,1,1,1"]
+|===
+|*Applciation*
+|*IP address*
+|*Username*
+|*Password*
+
+|Web server
+|192.168.110.133
+|local\HL-DEMO
+|1HOLODEMO!
+
+|Hololight Space
+|192.168.109.135
+|local\HL-DEMO
+|1HOLODEMO!
+
+|NVIDIA Omniverse
+|192.168.108.195
+|local\HL-DEMO
+|1HOLODEMO!
+
+|Frontline
+|192.168.110.80
+|local\HL-DEMO
+|1HOLODEMO!
+
+|Taqtile
+|192.168.110.83
+|local\HL-DEMO
+|1HOLODEMO!
+|=== 
+
+<<<
+    
+[reftext="appendixVMWare"]
+=== Appendix C - Server VMware information
+
+==== Server addresses
+
+[cols="1,1,3"]
+|===
+|*Demo setup*
+|*Network name*
+|*Control panel IP Address*
+
+|Setup 1
+|HUB-AWE-1
+|\https://192.168.111.222
+
+|Setup 2
+|HUB-AWE-2
+|\https://192.168.111.211
+|=== 
+
+==== Server VMware sign in credentials
+
+[cols="1,3"]
+|===
+|*username*
+|root
+
+|*password*
+|1HOLODEMO!
+|=== 
+
+<<<
+
+[reftext="appendixEquipment"]
+=== Appendix D - Equipment checklist
+
+[cols="4,2,1,1"]
+|===
+|Equipment
+|Label
+|Setup count
+|Total count
+
+|Network - Switch with power adapter +
+|HOLO SWITCH # +
+HOLO SWTICH # PWR + 
+There are different switches
+|1
+|2
+
+|Network - Gateway with power adapter +
+|HOLO GATE # +
+HOLO GATE # PWR 
+|1
+|2
+
+|Network - Access point +
+|HOLO ACCESS #
+|1
+|2
+
+
+|Network - Hotspot +
+You need to buy this in the US
+|
+|1
+|2
+
+|Network - Ethernet cables +
+|HOLO ETHR # (00-02)
+|3
+|6
+
+|Server Machine +
+|AWE SERVER #
+|1
+|2
+
+|Server Machine Power Cables
+|
+|2
+|4
+
+|Mixed-reality device - HoloLens 2 with Hololight Hub Client +
+- Case, USB charging cable, and power adapter
+|
+|1
+|2
+
+|Mixed-reality device - Magic Leap 2 with Hololight Hub Client +
+- Case, USB charging cable, and power adapter
+|
+|1
+|2
+
+|Mixed-reality device - Meta Quest 3 with Hololight Hub Client +
+- Case, USB charging cable, and power adapter
+|
+|1
+|2
+
+|Mixed-reality device - Lenovo VXR with Hololight Hub Client +
+- Case, USB charging cable, and power adapter
+|
+|1
+|2
+
+|iPad with charging cable and power adapter
+|
+|1
+|2
+
+|Laptop with charging cable and power adapter
+|
+|1
+|2
+
+|Monitor+
+- Power adapter, remote, and HDMI Cable 
+|
+|1
+|2
+
+|Chromecast with power adapter
+|
+|1
+|2
+
+|Power strip
+|
+|1
+|2
+
+|US electrical plug travel adapters (as needed)
+|
+|4-8
+|10-16
+|=== 
